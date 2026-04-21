@@ -1,3 +1,9 @@
+# ESP-IDF component support: if building inside ESP-IDF, register as header-only component and return.
+if(ESP_PLATFORM)
+    idf_component_register(INCLUDE_DIRS "." "glm")
+    return()
+endif()
+
 # 3.6 is the actual minimun. 3.14 as the upper policy limit avoids CMake deprecation warnings.
 cmake_minimum_required(VERSION 3.6...3.14 FATAL_ERROR)
 cmake_policy(VERSION 3.6...3.14)
